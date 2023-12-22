@@ -28,20 +28,25 @@ const { title } = Astro.props;
     <slot />
     <Footer />
   </body>
+
+
   <script>
     const switchTheme = document.querySelector(
       "[data-switch-theme]"
     ) as HTMLButtonElement;
 
-    if (
-      localStorage.getItem("appTheme") === "dark" ||
-      (!("appTheme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+  // When the script loads, we want to set the theme to 'light' by default
+  if (!localStorage.getItem("appTheme")) {
+    localStorage.setItem("appTheme", "light"); // Set default theme to 'light'
+  }
+
+  // Now we update the condition to check for 'light' theme instead of 'dark'
+  if (localStorage.getItem("appTheme") === "light") {
+    document.documentElement.classList.remove("dark"); // Ensure 'dark' class is removed for light theme
+  } else {
+    document.documentElement.classList.add("dark"); // Add 'dark' class when the theme is not 'light'
+  }
+
     if (switchTheme) {
       switchTheme.addEventListener("click", (e) => {
         e.preventDefault();
@@ -68,6 +73,8 @@ const { title } = Astro.props;
       });
     }
   </script>
+
+
   <script>
     const toggleMenu = document.querySelector(
       "[data-toggle-nav]"
