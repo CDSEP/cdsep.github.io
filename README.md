@@ -1,9 +1,6 @@
-<h1>AgenceX Landing page</h1>
+<h1>CDSEP Landing</h1>
 
-A simple landing page for a digital agency
-
-![AgenceX light Theme](./screens/demoLight.webp)
-![AgenceX Dark Theme](./screens/demoDark.webp)
+![image](https://github.com/CDSEP/cdsep.github.io/assets/44554474/28b1e7ec-1093-40c0-9cc5-c83310fd916b)
 
 
 ## Tools
